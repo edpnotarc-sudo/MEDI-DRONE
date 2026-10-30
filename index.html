@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071827">
+  <title>MEDI-DRONE | Emergency Medical Assistance</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">✚</span>
+      <span>MEDI-DRONE</span>
+    </a>
+    <nav>
+      <a href="index.html">Emergency</a>
+      <a href="drone.html">Drone Tracking</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="responder.html">Responder</a>
+    </nav>
+    <span class="system-status">
+      <span class="status-dot"></span> System Online
+    </span>
+  </header>
+
+  <main class="page-container">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">EMERGENCY MEDICAL RESPONSE SYSTEM</p>
+        <h1>Help is closer<br>than you think.</h1>
+        <p>
+          Request emergency medical assistance and locate nearby
+          medical drone support through one platform.
+        </p>
+        <a class="primary-button" href="#emergency-form">
+          Request Emergency Help
+        </a>
+      </div>
+      <div class="hero-symbol" aria-hidden="true">🚁</div>
+    </section>
+
+    <section class="info-grid">
+      <article class="info-card">
+        <span class="card-icon">🚑</span>
+        <h3>Emergency Support</h3>
+        <p>Submit an emergency request for assistance.</p>
+      </article>
+      <article class="info-card">
+        <span class="card-icon">🚁</span>
+        <h3>Medical Drone Network</h3>
+        <p>View available medical drones and their status.</p>
+      </article>
+      <article class="info-card">
+        <span class="card-icon">📍</span>
+        <h3>Location Sharing</h3>
+        <p>Share your location to help responders find you.</p>
+      </article>
+    </section>
+
+    <section class="emergency-section" id="emergency-form">
+      <div class="section-heading">
+        <p class="eyebrow">QUICK RESPONSE</p>
+        <h2>Emergency Assistance Request</h2>
+        <p>Enter the details below to create a simulated emergency request.</p>
+      </div>
+
+      <form id="emergencyForm" class="emergency-form">
+        <div class="form-group">
+          <label for="userName">Your name *</label>
+          <input id="userName" name="userName" type="text"
+            placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="userPhone">Phone number</label>
+          <input id="userPhone" name="userPhone" type="tel"
+            placeholder="Enter your phone number">
+        </div>
+
+        <div class="form-group">
+          <label for="triageType">Emergency type *</label>
+          <select id="triageType" name="triageType" required>
+            <option value="">Select emergency type</option>
+            <option value="chest_pain">Chest pain</option>
+            <option value="breathing_difficulty">Breathing difficulty</option>
+            <option value="severe_bleeding">Severe bleeding</option>
+            <option value="allergic_reaction">Allergic reaction</option>
+            <option value="overdose">Overdose</option>
+            <option value="other">Other emergency</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Describe the emergency</label>
+          <textarea id="description" name="description"
+            rows="3" placeholder="Briefly describe what happened"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="bloodGroup">Blood group</label>
+          <input id="bloodGroup" name="bloodGroup" type="text"
+            placeholder="Example: O+">
+        </div>
+
+        <div class="form-group">
+          <label for="allergies">Known allergies</label>
+          <input id="allergies" name="allergies" type="text"
+            placeholder="Enter allergies, if any">
+        </div>
+
+        <div class="form-group">
+          <label for="conditions">Existing medical conditions</label>
+          <input id="conditions" name="conditions" type="text"
+            placeholder="Enter relevant conditions">
+        </div>
+
+        <div class="location-panel">
+          <div>
+            <strong>📍 Your location</strong>
+            <p id="locationStatus">Location has not been selected.</p>
+          </div>
+          <button type="button" id="getLocationButton" class="secondary-button">
+            Get My Location
+          </button>
+        </div>
+
+        <p class="form-note">
+          Location permission is required to submit an emergency request.
+        </p>
+
+        <button type="submit" class="emergency-button">
+          REQUEST EMERGENCY ASSISTANCE
+        </button>
+
+        <div id="formMessage" class="form-message" role="status"
+          aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="map-section">
+      <div class="section-heading">
+        <p class="eyebrow">LIVE MAP VIEW</p>
+        <h2>Medical Support Network</h2>
+        <p>Map display for the prototype's medical hubs.</p>
+      </div>
+      <div id="map" class="map-container"></div>
+    </section>
+
+    <p class="safety-note">
+      <strong>Important:</strong> MEDI-DRONE is a hackathon prototype.
+      Requests and notifications are simulated. It does not contact
+      emergency services or dispatch a real drone. For a real emergency
+      in India, call 112 directly.
+    </p>
+  </main>
+
+  <footer class="footer">
+    MEDI-DRONE · Emergency Medical Delivery Prototype
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/emergency.js"></script>
+</body>
+</html>
